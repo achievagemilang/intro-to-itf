@@ -1,11 +1,12 @@
 # Fuki Store - Week 1
 
 ## Daftar Isi
-1. [Pengenalan Client Side dan Server Side](#1-init-django-project)
-2. Hands-on projek FUKI Store
-3. Django urls (url params)
-4. Functional Based views
-5. Interact with Database
+- [Fuki Store - Week 1](#fuki-store---week-1)
+  - [Daftar Isi](#daftar-isi)
+  - [1. Init Django Project](#1-init-django-project)
+  - [2. Membuat Views Pada Aplikasi `store`](#2-membuat-views-pada-aplikasi-store)
+  - [3. Membuat Urls pada Django](#3-membuat-urls-pada-django)
+  - [4. Berkenalan dengan Database (Django Models)](#4-berkenalan-dengan-database-django-models)
 
 
 
