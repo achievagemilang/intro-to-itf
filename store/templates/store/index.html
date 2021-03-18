@@ -1,12 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <h1>Selamat Datang di FukiStore 🎉</h1>
-</body>
-</html>
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block app_css %}
+	<link rel="stylesheet" type="text/css" href="{% static "store/css/index.css" %}">
+{% endblock app_css %}
+
+{% block content %}
+	<section class="landing-page-section" style="min-height: 100vh;">
+	 <div class="row landing-page">
+      <div class="col s6" style="max-width : 531px">
+      	<div class="row">
+      		<h1>40% OFF</h1>
+      	</div>
+      	<div class="row">
+      		<h3>Hot Toys Endgame Edition</h3>
+      	</div>
+      	<div class="row">
+      		<p>Cuy ini lagi diskon lu gamau beli apa, kitajual murah banget nih lo beneran gamau beli nih?!
+			Gila apaa wey ini 40% hot toys kapan lagi bosquuuu</p>
+      	</div>
+  	  </div>
+      <div class="col s6">
+      	<div class="row">
+		  <div class="carousel carousel-slider landing-page-img">
+		    <a class="carousel-item" href="#one!"><img src="https://i.ibb.co/93F1LnC/hottoys1.jpg"></a>
+		    <a class="carousel-item" href="#two!"><img src="https://i.ytimg.com/vi/2vQnJLFApC0/maxresdefault.jpg"></a>
+		    <a class="carousel-item" href="#four!"><img src="https://static.wikia.nocookie.net/five-world-war/images/c/cc/Genryusai_shigekuni_yamamoto_by_esteban_93-d8ee2k9.png/revision/latest?cb=20170524200922"></a>
+		  </div>
+      	</div>
+  	  </div>
+    </div>
+	</section>
+
+	<section class="shopping-section" style="background-color: #BAB8DA; min-height:600px;">
+		<div class="row">
+			<div class="row-button">
+				<div class="column-button">
+					<button class="button-shopping-page"><a href="{% url 'store:tambah_penjual' %}"><p style="color: white;">Tambah Penjual</p></a></button>
+				</div>
+				<div class="column-button">
+					<button class="button-shopping-page"><a href="{% url 'store:tambah_barang' %}"><p style="color: white;">Tambah Barang</p></a></button>
+				</div>
+			</div>
+
+
+    	</div>
+    	<div class="row">
+    	{% for barang in list_barang%}
+		  	<div class="catalogue">
+		    <div class="col s12 m6">
+		      <div class="card">
+		        <div class="card-image">
+		          <img src="{{barang.photo.url}}">
+		          <span class="card-title" style="color:white;font-weight:bold; ">{{barang.nama_barang}}</span>
+		          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+		        </div>
+		        <div class="card-content">
+		        	<h6 style="font-weight:bold;">IDR {{barang.harga_barang}}</h6>
+		        	<p>{{barang.deskripsi_barang}}</p>
+		        </div>
+			    <div class="card-action">
+			      <a href="#">{{barang.penjual}}</a>
+			    </div>
+		      </div>
+		    </div>
+		  	</div>
+
+		  
+
+		{% endfor %}
+		</div>
+	</section>
+
+
+{% endblock content %}
+
+{% block app_js %}
+	<script type="text/javascript" src="{% static "store/js/index.js" %}"></script>
+{% endblock app_js %}

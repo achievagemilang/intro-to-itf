@@ -1,0 +1,23 @@
+{% load static %}
+
+
+<script type="text/javascript" src="{% static "store/js/navbar.js" %}"></script>
+
+<!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content">
+  <li><a href="#!">one</a></li>
+  <li><a href="#!">two</a></li>
+  <li class="divider"></li>
+  <li><a href="#!">three</a></li>
+</ul>
+
+<nav style="background-color:#2F3A80;">
+  <div class="nav-wrapper">
+    <a href="#!" class="brand-logo nav-fuki">FUKI STORE</a>
+    <ul class="right hide-on-med-and-down">
+      <!-- Dropdown Trigger -->
+      <li style="margin-top : 10px; margin-right: 60px;"><a class="dropdown-trigger" href="#!" data-target="dropdown1"><img src="{% static "store/img/cart.png" %}" class="nav-cart"><i class="material-icons right"></i></a></li>
+    </ul>
+  </div>
+</nav>
+       

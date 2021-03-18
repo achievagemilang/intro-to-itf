@@ -1,0 +1,83 @@
+
+.landing-page-section{
+	background-color: #75AAD2;
+	flex: 1 0 auto;
+	height: calc(100vh-100px);
+	font-family: "Fira Code";
+}
+.landing-page h1,h3{
+	color: white;
+	font-family: "Fira Code";
+}
+
+.landing-page h3{
+	font-size : 36px;
+}
+
+.landing-page p{
+	font-family: "Fira Code";
+	color : #F0F0F0;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 24px;
+	line-height: 153.7%;
+}
+
+.landing-page h1{
+	font-size: 96px; 
+	font-weight: bold;
+}
+
+.landing-page{
+	margin-top: 7%;
+	margin-left: 7%;
+}
+
+.landing-page-img{
+	width: 585px;
+	height: 411px;
+	margin-left: 20%;
+}
+.landing-page-img a img{
+	min-height: 100%;
+	min-width: 100%;
+}
+
+/*Shopping Section */
+.row-button{
+	display: flex;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	justify-content:center;
+}
+.column-button{
+	display: flex;
+	margin-left : 5%;
+	flex-direction: column;
+}
+
+
+.shopping-section{
+	min-height: 100vh;
+}
+
+.cart-container {
+	width: 80%;
+	height: 80%;
+	background-color: white;
+}
+
+.button-shopping-page {
+	width: 240px;
+	height: 100px;
+	background: #2F3A80;
+	border-radius: 15px;
+}
+
+.catalogue{
+	width : 65%;
+	height : 50%;
+	margin-left: auto;
+	margin-right:auto;
+}
+
