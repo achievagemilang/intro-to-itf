@@ -164,34 +164,52 @@ akses url [localhost](http://127.0.0.1:8000/) dan akan tertampil halaman aplikas
   * [Tabel Tipe Data](#tabel-tipe-data)
   * [Relationship Fields](#tabel-jenis-jenis-relationship-)
 
-Membuat Class pada `homepage/models.py`
+Membuat Class pada `store/models.py`
 ---
 ```python
 from django.db import models
 
-class myProfile(models.Model):
-    username = models.CharField(max_length=25)
-    email = models.EmailField(max_length=100)
+class Penjual(models.Model):
+    nama_depan = models.CharField(max_length=30)
+    nama_belakang = models.CharField(max_length=30)
+    email = models.EmailField()
+
+    def __str__(self):
+        return "%s %s" % (self.nama_depan, self.nama_belakang)
+```
+```python
+class Barang(models.Model):
+    nama_barang = models.CharField(max_length=100)
+    harga_barang = models.DecimalField(max_digits=10, decimal_places=0)
+    deskripsi_barang = models.CharField(max_length=300, default=None)
+    penjual = models.ForeignKey(Penjual, default=1,on_delete=models.CASCADE)
+    photo = models.ImageField(upload_to="img/",default='img/default.png')
+    
+
+    def __str__(self):
+        return self.nama_barang
 ```
 
-Table homepage_myProfile
+Table Penjual
 
-| id | username    | email                 |
-|----|-------------|-----------------------|
-| 1  | coba        | coba2@gmail.com       |
-| 2  | coba2       | coba2@gmail.com       |
+| id | nama_depan    | nama_belakang       | email                 |
+|----|---------------|---------------------|-----------------------|
+| 1  | ucup          | surucup             |ucup.surucup@gmail.com |
+| 2  | pucu          | pucurus             |pucu.pucurus@gmail.com |
 
-Mendaftarkan Class pada `homepage/admin.py`
+
+Mendaftarkan Class pada `store/admin.py`
 ---
-Untuk membuat model dalam admin Django, kita perlu memodifikasi `homepage/admin.py`. Buka `admin.py` di homepage dan masukkan kode berikut. Impor model terkait dari `models.py` dan daftarkan ke antarmuka admin.
+Untuk membuat model dalam admin Django, kita perlu memodifikasi `store/admin.py`. Buka `admin.py` di store dan masukkan kode berikut. Import model terkait dari `models.py` dan daftarkan ke antarmuka admin.
 
 ```python
 from django.contrib import admin  
     
 # Register your models here.  
-from .models import myProfile  
+from .models import Penjual, Barang  
     
-admin.site.register(myProfile)  
+admin.site.register(Penjual)  
+admin.site.register(Barang)  
 ```
 
 ### Melihat models lewat shell
@@ -217,14 +235,14 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 import class yang sudah di buat tadi di dalam folder app
 ```python
->>> from app.models import myProfile
+>>> from app.models import Penjual
 ```
 
 Membuat object dari model yang sudah dibuat
 ---
 ```python
->>> myProfile(username='coba', email='coba@gmail.com').save()
->>> myProfile(username='coba2', email='coba2@gmail.com').save()
+>>> Penjual(nama_depan='ucup',nama_belakang='surucup', email='ucup.surucup@gmail.com').save()
+>>> Penjual(nama_depan='pucu', nama_belakang='pucurus', email='pucu.pucurus@gmail.com').save()
 ```
 
 Melihat objek
@@ -233,38 +251,13 @@ query class yang sudah dibuat
 
 ```python
 >>> myProfile.objects.all()
-<QuerySet [<myProfile: myProfile object (1)>, <myProfile: myProfile object (2)>]>
-```
-
-lihat attribut2 dari tiap2 object yang sudah dibuat
-```python
->>> myProfile.objects.all().values()
-<QuerySet [{'id': 1, 'username': 'coba', 'email': 'coba@gmail.com'}, {'id': 2, 'username': 'coba2', 'email': 'coba2@gmail.com'}]>
-```
-
-mendefinisikan to string pada sebuah model django (sama seperti class biasa)
-```python
-from django.models import models
-
-class myProfile(models.Model):
-    username = models.CharField(max_length=25)
-    email = models.EmailField(max_length=100)
-
-    def __str__(self):
-        return "{}: {}".format(self.username, self.email)
-```
-
-maka melihat query akan lebih mudah
-###### best practice nya kalian mendefinisikan method \__str__() sendiri
-```python
->>> myProfile.objects.all()
-<QuerySet [<myProfile: coba: coba@gmail.com>, <myProfile: coba2: coba2@gmail.com>]>
+<QuerySet [<Penjual: Penjual object (1)>, <Penjual: Penjual object (2)>]>
 ```
 
 Mengedit objek
 ---
 ```python
->>> obj1 = myProfile.objects.get(id=1) #username:coba
+>>> obj1 = Penjual.objects.get(id=1) #username:coba
 >>> obj1.username = "cobaEdited"
 >>> obj1.save()
 ```
@@ -272,7 +265,7 @@ Mengedit objek
 Menghapus objek
 ---
 ```python
->>> obj2 = myProfile.onjects.get(id=2)
+>>> obj2 = Penjual.onjects.get(id=2)
 >>> obj2.delete()
 ```
 
