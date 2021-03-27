@@ -46,21 +46,23 @@
 
     	</div>
     	<div class="row">
-    	{% for barang in list_barang%}
+    	<!-- To Do : Logic untuk akses list_barang dari views.py -->
+
+    	
 		  	<div class="catalogue">
 		    <div class="col s12 m6">
 		      <div class="card">
 		        <div class="card-image">
-		          <img src="{{barang.photo.url}}">
-		          <span class="card-title" style="color:white;font-weight:bold; ">{{barang.nama_barang}}</span>
+		          
+		          
 		          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
 		        </div>
 		        <div class="card-content">
-		        	<h6 style="font-weight:bold;">IDR {{barang.harga_barang}}</h6>
-		        	<p>{{barang.deskripsi_barang}}</p>
+	
+
 		        </div>
 			    <div class="card-action">
-			      <a href="#">{{barang.penjual}}</a>
+			      
 			    </div>
 		      </div>
 		    </div>
@@ -68,7 +70,7 @@
 
 		  
 
-		{% endfor %}
+		
 		</div>
 	</section>
 
