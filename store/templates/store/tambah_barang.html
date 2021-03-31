@@ -8,10 +8,14 @@
 {% block content %}
 	<div class="container" style="min-height: 80.5vh;">
 		<div class="tambah_barang_form">
-
-			<!-- To Do : Tampilkan form untuk tambah barang -->
-
-
+			<form method="post" enctype="multipart/form-data" id="myform">
+				#
+				#
+				<br>
+				<button class="btn waves-effect waves-light submit-button" type="submit" name="action">Submit
+	    			<i class="material-icons right">send</i>
+	  			</button>
+			</form>
 		</div>
 
 	</div>
@@ -21,3 +25,6 @@
 {% block app_js %}
 	<script type="text/javascript" src="{% static "store/js/tambah_barang.js" %}"></script>
 {% endblock app_js %}
+
+<!-- To Do :
+	1. get form from views.py, don't forget to add csrf toket for security

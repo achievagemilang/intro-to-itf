@@ -36,41 +36,34 @@
 		<div class="row">
 			<div class="row-button">
 				<div class="column-button">
-					<button class="button-shopping-page"><a href="{% url 'store:tambah_penjual' %}"><p style="color: white;">Tambah Penjual</p></a></button>
+					<button class="button-shopping-page"><a href="#"<p style="color: white;">Tambah Penjual</p></a></button>
 				</div>
 				<div class="column-button">
-					<button class="button-shopping-page"><a href="{% url 'store:tambah_barang' %}"><p style="color: white;">Tambah Barang</p></a></button>
+					<button class="button-shopping-page"><a href="#"><p style="color: white;">Tambah Barang</p></a></button>
 				</div>
 			</div>
-
-
     	</div>
     	<div class="row">
-    	<!-- To Do : Logic untuk akses list_barang dari views.py -->
-
-    	
+    	{% for # in # %}
 		  	<div class="catalogue">
 		    <div class="col s12 m6">
 		      <div class="card">
 		        <div class="card-image">
-		          
-		          
+		          <img src="#">
+		          <span class="card-title" style="color:white;font-weight:bold; ">#</span>
 		          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
 		        </div>
 		        <div class="card-content">
-	
-
+		        	<h6 style="font-weight:bold;">IDR #</h6>
+		        	<p>#</p>
 		        </div>
 			    <div class="card-action">
-			      
+			      <a href="#">#</a>
 			    </div>
 		      </div>
 		    </div>
 		  	</div>
-
-		  
-
-		
+		{% endfor %}
 		</div>
 	</section>
 
@@ -80,3 +73,11 @@
 {% block app_js %}
 	<script type="text/javascript" src="{% static "store/js/index.js" %}"></script>
 {% endblock app_js %}
+
+
+<!-- To Do :
+	1. 		Routing URL for 'Tambah Penjual' and 'Tambah Barang' button
+	2. 		Loop for accessing data 'list_barang' from views.py
+	2.1.	Accessing photo url from each barang
+	2.2. 	Get data from each 'barang' (nama_barang, harga_barang, deskripsi_barang, penjual)
+-->

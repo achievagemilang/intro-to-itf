@@ -1,7 +1,7 @@
 from . import views
 from django.urls import path
 
-# to do : menambahkan url untuk tambah-barang dan tambah-penjual
+# To Do : Add routing url for 'Tambah Barang' and 'Tambah Penjual'
 urlpatterns = [
     path('', views.index, name='index'),
 ]

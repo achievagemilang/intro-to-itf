@@ -5,4 +5,4 @@ from .forms import tambahBarangForm, tambahPenjualForm
 
 
 # Create your views here.
-# to do : membuat fungsi untuk index, tambah_barang, dan tambah_penjual
+# To Do : Create a function for showing the index, submit form for tambah_barang, and submit form fortambah_penjual
