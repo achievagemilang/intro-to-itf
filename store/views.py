@@ -8,18 +8,6 @@ from .forms import tambahBarangForm, tambahPenjualForm
 def index(request):
 	list_barang = Barang.objects.all()
 	
-
-	#list_penjual = Penjual.objects.all()
-	#data_penjual = []
-	#for penjual in list_penjual:
-	#	list_barang = Barang.objects.filters(penjual=penjual)
-	#	data_barang = []
-	#	for barang in list_barang:
-	#		data_barang.append(barang)
-	#	data_penjual.append((penjual,data_barang)) 
-	#context={'data_penjual': data_penjual}
-
-
 	context={ "list_barang":list_barang}
 	return render(request,"store/index.html", context)
 
